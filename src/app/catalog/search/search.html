@@ -1,0 +1,12 @@
+<div class="container">
+  <input class="search" placeholder="Search..." (keyup)="filter($event)" />
+  <ul class="products">
+    @for (product of getFilteredProducts(); track product.id) {
+      <li class="product-item">
+        <bot-product-details [product]="product">
+          <button class="cta" (click)="addToCart(product)">Buy</button>
+        </bot-product-details>
+      </li>
+    }
+  </ul>
+</div>

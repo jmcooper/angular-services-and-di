@@ -1,4 +1,4 @@
-import { Product } from "@shared/product.model";
+import { Product } from "../../product.model";
 
 export const engineers: Product[] = [
   {
@@ -29,7 +29,7 @@ export const engineers: Product[] = [
     discount: 0
   },
   {
-    id: 3,
+    id: 4,
     name: "Chief Engineer",
     description: "Our chief engineers will help you create an entire plan for creating an efficient bot workforce and assist in programming them to work within complex systems.",
     imageName: "profile-images/chief.png",

@@ -1,19 +1,17 @@
 import { Component } from '@angular/core';
-import { Product } from '@shared/product.model';
+import { ProductDetails } from '../../product-details/product-details';
+import { Product } from '../../product.model';
 import { engineers } from './engineers';
 
 @Component({
+  imports: [ProductDetails],
   selector: 'bot-catalog',
-  standalone: false,
-  templateUrl: './squad-catalog.component.html',
-  styleUrls: ['./squad-catalog.component.css'],
-  providers: []
+  styleUrl: './squad-catalog.css',
+  templateUrl: './squad-catalog.html',
 })
-export class SquadCatalogComponent {
+export class SquadCatalog {
   squad: Product[] = engineers;
   private cart: Product[] = [];
-
-  constructor() { }
 
   addToCart(engineer: Product) {
     this.cart.push(engineer);

@@ -1,19 +1,18 @@
 import { Component } from '@angular/core';
-import { Product } from '../product.model';
-import { productsArray } from '../products-data'
+import { ProductDetails } from '../../product-details/product-details';
+import { Product } from '../../product.model';
+import { productsArray } from '../products-data';
 
 @Component({
+  imports: [ProductDetails],
   selector: 'bot-search',
-  standalone: false,
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css'],
+  styleUrl: './search.css',
+  templateUrl: './search.html',
 })
-export class SearchComponent {
+export class Search {
   products: Product[] = [...productsArray];
   searchTerm: string = '';
   cart: Product[] = [];
-
-  constructor() { }
 
   ngOnInit() {
     this.products = [...productsArray];
@@ -30,8 +29,8 @@ export class SearchComponent {
   getFilteredProducts() {
     return this.searchTerm === ''
       ? this.products
-      : this.products.filter(
-        (product: Product) => product.name.toLowerCase().includes(this.searchTerm)
-      );
+      : this.products.filter((product: Product) =>
+          product.name.toLowerCase().includes(this.searchTerm),
+        );
   }
 }

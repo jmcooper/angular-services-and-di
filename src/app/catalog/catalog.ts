@@ -1,18 +1,17 @@
 import { Component } from '@angular/core';
-import { Product } from './product.model';
+import { ProductDetails } from '../product-details/product-details';
+import { Product } from '../product.model';
 import { productsArray } from './products-data';
 
 @Component({
+  imports: [ProductDetails],
   selector: 'bot-catalog',
-  standalone: false,
-  templateUrl: './catalog.component.html',
-  styleUrls: ['./catalog.component.css'],
+  styleUrl: './catalog.css',
+  templateUrl: './catalog.html',
 })
-export class CatalogComponent {
+export class Catalog {
   products: Product[] = productsArray;
   private cart: Product[] = [];
-
-  constructor() { }
 
   addToCart(product: Product) {
     this.cart.push(product);

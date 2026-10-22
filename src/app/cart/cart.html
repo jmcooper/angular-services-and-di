@@ -1,0 +1,17 @@
+<div class="container">
+  <h1 class="header">Your Cart</h1>
+
+  @if (cartItems.length === 0) {
+    <div class="empty-cart">You have no items in your cart</div>
+  }
+  <ul class="cart">
+    @for (product of cartItems; track $index) {
+      <li class="cart-item">
+        <bot-product-details [product]="product">
+          <button (click)="removeFromCart(product)">Remove</button>
+        </bot-product-details>
+      </li>
+    }
+  </ul>
+  <div class="total">Total: {{ cartTotal | currency }}</div>
+</div>

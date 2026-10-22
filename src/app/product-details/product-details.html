@@ -8,12 +8,14 @@
     </div>
   </div>
   <div class="price">
-    <div [ngClass]="{ strikethrough: product.discount > 0 }">
-      {{ product.price | currency : "USD" }}
+    <div [class.strikethrough]="product.discount > 0">
+      {{ product.price | currency: 'USD' }}
     </div>
-    <div *ngIf="product.discount > 0" class="discount">
-      {{ product.price * (1 - product.discount) | currency : "USD" }}
-    </div>
-    <ng-content></ng-content>
+    @if (product.discount > 0) {
+      <div class="discount">
+        {{ product.price * (1 - product.discount) | currency: 'USD' }}
+      </div>
+    }
+    <ng-content />
   </div>
 </div>
